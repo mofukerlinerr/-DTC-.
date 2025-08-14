@@ -1,9 +1,17 @@
 ###########                Imports Start                ###########
-import random
-import json
-import os 
 import subprocess
 import sys
+
+
+def install_os():
+    try:
+        import os
+        print("os is already installed")
+    except ImportError:
+        print("os not found. Installing...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "os"])
+        print("os installed successfully")
+
 
 
 def install_pygame():
@@ -17,6 +25,9 @@ def install_pygame():
 
 
 install_pygame()
+install_os()
+install_json()
+install_random()
 
 import pygame
 
@@ -146,4 +157,5 @@ def main():
     pygame.quit()
 
 if __name__ == "__main__":
+
     main()
